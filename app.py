@@ -10,7 +10,7 @@ if ENV == 'dev':
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:daniel@localhost/classes' 
 else:
     app.debug = False
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://cmapanoouolbgw:d48dbfb020e963fcbb8b2160a53a8846c542ed4a92a2f00eab13c45121d690cb@ec2-3-91-127-228.compute-1.amazonaws.com:5432/d1u0deel3jdjmn'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://cmapanoouolbgw:d48dbfb020e963fcbb8b2160a53a8846c542ed4a92a2f00eab13c45121d690cb@ec2-3-91-127-228.compute-1.amazonaws.com:5432/d1u0deel3jdjmn'
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
