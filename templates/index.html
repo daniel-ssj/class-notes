@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/style.css" />
+    <title>Class notes</title>
+  </head>
+  <body>
+    <div class="container">
+      {% if message %}
+      <p style="color: red">{{message}}</p>
+      {% endif %}
+      <form action="/submit" method="POST">
+        <div class="form-group">
+          <h3>Class note</h3>
+          <div style="display: flex; margin-bottom: 0.5rem">
+            <input type="text" name="title" placeholder="Title" />
+            <input list="classes" name="class" placeholder="Class" />
+            <datalist id="classes">
+              <option value="DW1A3"></option>
+              <option value="ESPA3"></option>
+              <option value="ES2A2"></option>
+              <option value="LP1A3"></option>
+              <option value="BD1A2"></option>
+            </datalist>
+          </div>
+
+          <textarea
+            type="text"
+            name="note"
+            cols="30"
+            rows="10"
+            placeholder="Class note"
+          ></textarea>
+          <input class="btn" type="submit" value="Submit" />
+          <a href="/notes">View notes</a>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

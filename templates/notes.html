@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/style.css" />
+    <title>Class notes</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Notes</h1>
+      <input id="class" list="classes" placeholder="Class" />
+      <a href="#" id="sort">Sort</a>
+      <datalist id="classes">
+        <option value="DW1A3"></option>
+        <option value="ESPA3"></option>
+        <option value="ES2A2"></option>
+        <option value="LP1A3"></option>
+        <option value="BD1A2"></option>
+      </datalist>
+
+      <script>
+        document.getElementById('sort').addEventListener('click', () => {
+          document
+            .getElementById('sort')
+            .setAttribute(
+              'href',
+              '/notes/' + document.getElementById('class').value
+            )
+          if (document.getElementById('class').value === '') {
+            document.getElementById('sort').setAttribute('href', '/notes')
+          }
+        })
+      </script>
+
+      {% for note in notes %}
+      <h3>{{note.title}} • {{note._class}}</h3>
+      <p>{{note.note}}</p>
+      <a href="/delete/{{note.id}}">Delete</a>
+      <br />
+      <br />
+      {% endfor %} {% if not notes %}
+      <h3>There are no notes for this class</h3>
+      {% endif %}
+      <a href="/">Return home</a>
+    </div>
+  </body>
+</html>
